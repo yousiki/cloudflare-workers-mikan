@@ -1,0 +1,6 @@
+{
+  "eslint.validate": [
+    "typescript", // Enable .ts
+    "typescriptreact" // Enable .tsx
+  ]
+}

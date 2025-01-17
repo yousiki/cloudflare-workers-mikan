@@ -1,0 +1,31 @@
+{
+  "name": "mikan",
+  "type": "module",
+  "scripts": {
+    "dev": "wrangler dev",
+    "deploy": "wrangler deploy --minify",
+    "lint": "eslint --format 'table' .",
+    "lint:fix": "eslint --format 'table' --fix .",
+    "prepare": "husky",
+    "format": "prettier --write ."
+  },
+  "dependencies": {
+    "hono": "^4.6.16"
+  },
+  "devDependencies": {
+    "@cloudflare/workers-types": "^4.20250109.0",
+    "eslint": "^9.18.0",
+    "eslint-config-prettier": "^10.0.1",
+    "eslint-formatter-table": "^7.32.1",
+    "eslint-plugin-prettier": "^5.2.2",
+    "husky": "^9.1.7",
+    "lint-staged": "^15.4.1",
+    "prettier": "^3.4.2",
+    "typescript": "^5.7.3",
+    "typescript-eslint": "^8.20.0",
+    "wrangler": "^3.101.0"
+  },
+  "lint-staged": {
+    "*": "prettier --write --ignore-unknown"
+  }
+}
