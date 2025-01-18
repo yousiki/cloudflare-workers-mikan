@@ -104,7 +104,7 @@ jobs:
       - name: Parse the URL of the deployed version
         env:
           CMD_OUTPUT: ${{ steps.deploy.outputs.command-output }}
-        run: echo "::set-env name=DEPLOYED_URL::$(echo $CMD_OUTPUT | grep -o 'https://[^ ]*')"
+        run: echo "DEPLOYED_URL=$(echo $CMD_OUTPUT | grep -o 'https://[^ ]*')" >> $GITHUB_ENV
       - name: Test the deployed version
         run: |
           curl -s -I $DEPLOYED_URL/ | grep -q "200 OK" && \
