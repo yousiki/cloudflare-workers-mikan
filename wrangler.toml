@@ -3,10 +3,8 @@ main = "src/index.ts"
 compatibility_date = "2025-01-17"
 compatibility_flags = ["nodejs_compat"]
 
-[env.production]
+workers_dev = true
 routes = [{ pattern = "mikan.siki.moe", custom_domain = true }]
-
-[env.preview]
 
 # Workers Logs
 # Docs: https://developers.cloudflare.com/workers/observability/logs/workers-logs/
