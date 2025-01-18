@@ -16,7 +16,7 @@ You can directly access the mirror site I deployed: [https://mikan.siki.moe](htt
 
 1. Fork this repository
 2. Edit the `wrangler.toml` file and replace `routes` with your own domain
-3. Create a new Cloudflare API token with the permission to edit workers, and add it to GitHub Secrets with the name `CLOUDFLARE_API_TOKEN`
+3. Create a new Cloudflare API token with the permission to edit workers, and add it to GitHub Secrets with the name `CLOUDFLARE_API_TOKEN`. Add `CLOUDFLARE_ACCOUNT_ID` to GitHub Secrets as well
 4. Enable GitHub Actions in your repository
 5. Trigger the workflow manually or push a commit to the repository
 
