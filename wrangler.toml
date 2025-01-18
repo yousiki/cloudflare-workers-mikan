@@ -3,15 +3,14 @@ main = "src/index.ts"
 compatibility_date = "2025-01-17"
 compatibility_flags = ["nodejs_compat"]
 
+workers_dev = true
+routes = [{ pattern = "mikan.siki.moe", custom_domain = true }]
+
 [placement]
 mode = "smart"
 
 [vars]
 UPSTREAM = "mikanani.me"
 
-[env.production]
-workers_dev = false
-routes = [{ pattern = "mikan.siki.moe", custom_domain = true }]
-
-[env.preview]
-workers_dev = true
+[env.preview.vars]
+UPSTREAM = "mikanani.me"
