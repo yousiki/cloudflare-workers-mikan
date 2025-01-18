@@ -3,6 +3,7 @@ main = "src/index.ts"
 compatibility_date = "2025-01-17"
 compatibility_flags = ["nodejs_compat"]
 
+workers_dev = true
 routes = [{ pattern = "mikan.siki.moe", custom_domain = true }]
 
 # Workers Logs
