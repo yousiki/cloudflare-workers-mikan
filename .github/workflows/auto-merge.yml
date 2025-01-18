@@ -17,7 +17,7 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
       - name: Ensure all checks have passed
-        run: gh pr checks "$PR_URL" --required --status success
+        run: gh pr checks "$PR_URL" --required --watch --fast-fail
         env:
           PR_URL: ${{ github.event.pull_request.html_url }}
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
