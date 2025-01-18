@@ -100,7 +100,7 @@ jobs:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
           gitHubToken: ${{ secrets.GITHUB_TOKEN }}
-          command: deploy --env dev --name=mikan --minify
+          command: deploy --env preview --minify
       - name: Print deployment URL
         env:
           DEPLOYMENT_URL: ${{ steps.deploy.outputs.deployment-url }}
