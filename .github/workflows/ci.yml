@@ -76,7 +76,7 @@ jobs:
           sarif_file: /tmp/lint.sarif
           wait-for-processing: true
   deploy:
-    name: Deploy to Cloudflare Workers
+    name: Deploy to Cloudflare Workers and test
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
@@ -107,5 +107,14 @@ jobs:
         run: echo "DEPLOYED_URL=$(echo $CMD_OUTPUT | grep -o 'https://[^ ]*')" >> $GITHUB_ENV
       - name: Test the deployed version
         run: |
-          curl -s -I $DEPLOYED_URL/ | grep -q "200 OK" && \
-          curl -s -I $DEPLOYED_URL/images/favicon.ico | grep -q "200 OK"
+          curl -s $DEPLOYED_URL > /tmp/deployed.html
+          curl -s https://mikanani.me > /tmp/expected.html
+          total_lines=$(wc -l < /tmp/expected.html)
+          diff_lines=$(diff /tmp/expected.html /tmp/deployed.html | grep -c "^[<>]")
+          diff_percentage=$(echo "scale=2; $diff_lines * 100 / $total_lines" | bc)
+          if (( $(echo "$diff_percentage > 5" | bc -l) )); then
+            echo "Difference is too large: $diff_percentage%"
+            exit 1
+          else
+            echo "Difference is acceptable: $diff_percentage%"
+          fi
