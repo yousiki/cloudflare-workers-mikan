@@ -75,28 +75,3 @@ jobs:
           cache-dependency-path: pnpm-lock.yaml
       - name: Install dependencies
         run: pnpm install --frozen-lockfile
-      - id: deploy
-        name: Deploy to Cloudflare Workers
-        uses: cloudflare/wrangler-action@7a5f8bbdfeedcde38e6777a50fe685f89259d4ca # v3.13.1
-        with:
-          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
-          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
-          gitHubToken: ${{ secrets.GITHUB_TOKEN }}
-          command: versions upload
-      - name: Parse the URL of the deployed version
-        env:
-          CMD_OUTPUT: ${{ steps.deploy.outputs.command-output }}
-        run: echo "DEPLOYED_URL=$(echo $CMD_OUTPUT | grep -o 'https://[^ ]*')" >> $GITHUB_ENV
-      - name: Test the deployed version
-        run: |
-          curl -s $DEPLOYED_URL > /tmp/deployed.html
-          curl -s https://mikanani.me > /tmp/expected.html
-          total_lines=$(wc -l < /tmp/expected.html)
-          diff_lines=$(diff /tmp/expected.html /tmp/deployed.html | grep -c "^[<>]")
-          diff_percentage=$(echo "scale=2; $diff_lines * 100 / $total_lines" | bc)
-          if (( $(echo "$diff_percentage > 5" | bc -l) )); then
-            echo "Difference is too large: $diff_percentage%"
-            exit 1
-          else
-            echo "Difference is acceptable: $diff_percentage%"
-          fi
