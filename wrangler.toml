@@ -11,3 +11,6 @@ UPSTREAM = "mikanani.me"
 
 [placement]
 mode = "smart"
+
+[observability.logs]
+enabled = true
