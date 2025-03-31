@@ -1,8 +1,9 @@
-name: Continuous Deployment
+name: Deploy
 
 on:
   push:
-    branches: [main]
+    branches:
+      - main 
   workflow_dispatch:
 
 permissions:
@@ -10,8 +11,24 @@ permissions:
   deployments: write
 
 jobs:
+  skip-check:
+    name: Skip check
+    runs-on: ubuntu-latest
+    outputs:
+      should_skip: ${{ steps.skip-check.outputs.should_skip }}
+    steps:
+      - name: Skip Check
+        uses: fkirc/skip-duplicate-actions@v5
+        id: skip-check
+        with:
+          concurrent_skipping: "never"
+          skip_after_successful_duplicate: "true"
+          paths_ignore: '["**/README.md"]' 
+          do_not_skip: '["workflow_dispatch", "schedule"]'
   deploy:
-    name: Deploy to Cloudflare Workers
+    needs: skip-check
+    if: needs.skip-check.outputs.should_skip != 'true'
+    name: Deploy to Cloudflare Pages
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
@@ -28,10 +45,13 @@ jobs:
           cache-dependency-path: pnpm-lock.yaml
       - name: Install dependencies
         run: pnpm install --frozen-lockfile
-      - name: Deploy to Cloudflare Workers
+      - name: Build
+        run: pnpm run build
+      - id: deploy
+        name: Deploy to Cloudflare Pages
         uses: cloudflare/wrangler-action@da0e0dfe58b7a431659754fdf3f186c529afbe65
         with:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
           gitHubToken: ${{ secrets.GITHUB_TOKEN }}
-          command: deploy --minify
+          command: pages deploy dist --project-name=sikimoe

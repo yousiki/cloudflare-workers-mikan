@@ -1,4 +1,4 @@
-name: Continuous Integration
+name: Check
 
 on:
   push:
@@ -9,7 +9,23 @@ permissions:
   security-events: write
 
 jobs:
+  skip-check:
+    name: Skip check
+    runs-on: ubuntu-latest
+    outputs:
+      should_skip: ${{ steps.skip-check.outputs.should_skip }}
+    steps:
+      - name: Skip Check
+        uses: fkirc/skip-duplicate-actions@v5
+        id: skip-check
+        with:
+          concurrent_skipping: "never"
+          skip_after_successful_duplicate: "true"
+          paths_ignore: '["**/README.md"]' 
+          do_not_skip: '["workflow_dispatch", "schedule"]'
   check:
+    needs: skip-check
+    if: needs.skip-check.outputs.should_skip != 'true'
     name: Run checks
     runs-on: ubuntu-latest
     steps:
@@ -30,6 +46,8 @@ jobs:
       - name: Check
         run: pnpm run check
   lint:
+    needs: skip-check
+    if: needs.skip-check.outputs.should_skip != 'true'
     name: Run linter
     runs-on: ubuntu-latest
     steps:
