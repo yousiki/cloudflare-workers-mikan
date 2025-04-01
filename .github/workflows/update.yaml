@@ -1,0 +1,60 @@
+name: Update
+
+on:
+  repository_dispatch:
+  workflow_dispatch:
+  schedule:
+    - cron: "0 0 * * *"
+  push:
+    branches:
+      - main
+    paths:
+      - ".github/workflows/update.yaml"
+
+permissions:
+  pull-requests: write
+  contents: write
+
+jobs:
+  update:
+    name: Update dependencies
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+      - name: Setup pnpm
+        uses: pnpm/action-setup@a7487c7e89a18df4991f7f222e4898a00d66ddda
+        with:
+          version: "9"
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version-file: .node-version
+          cache: pnpm
+          cache-dependency-path: pnpm-lock.yaml
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+      - name: Update dependencies
+        run: pnpm update
+      - name: Create Pull Request if there are changes
+        uses: peter-evans/create-pull-request@v7
+        id: update-packages
+        with:
+          token: ${{ secrets.ACTIONS_PR_TOKEN }}
+          commit-message: "chore: update packages"
+          title: "Automated update of packages"
+          body: |
+            This PR updates packages with the latest versions.
+            Automated by the update workflow.
+          branch: update_packages_action
+          labels: |
+            dependencies
+            automated
+            merge-queue
+      - name: Auto merge Pull Request
+        if: steps.update-packages.outputs.pull-request-operation == 'created'
+        uses: peter-evans/enable-pull-request-automerge@v3
+        with:
+          token: ${{ secrets.ACTIONS_PR_TOKEN }}
+          pull-request-number: ${{ steps.update-packages.outputs.pull-request-number }}
+          merge-method: squash
