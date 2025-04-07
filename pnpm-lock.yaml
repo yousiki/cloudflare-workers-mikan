@@ -13,8 +13,8 @@ importers:
         version: 4.7.5
     devDependencies:
       '@cloudflare/workers-types':
-        specifier: ^4.20250406.0
-        version: 4.20250406.0
+        specifier: ^4.20250407.0
+        version: 4.20250407.0
       '@microsoft/eslint-formatter-sarif':
         specifier: ^3.1.0
         version: 3.1.0
@@ -47,7 +47,7 @@ importers:
         version: 8.29.0(eslint@9.24.0)(typescript@5.8.3)
       wrangler:
         specifier: ^4.7.2
-        version: 4.7.2(@cloudflare/workers-types@4.20250406.0)
+        version: 4.7.2(@cloudflare/workers-types@4.20250407.0)
 
 packages:
 
@@ -94,8 +94,8 @@ packages:
     cpu: [x64]
     os: [win32]
 
-  '@cloudflare/workers-types@4.20250406.0':
-    resolution: {integrity: sha512-E42GP9oZFNOoykucfN9H9qaG3IeID6VMHc2zGjVuDYT2G55uESe56tstuGFYYwjMm36QeNob+ZryyiE92idFYA==}
+  '@cloudflare/workers-types@4.20250407.0':
+    resolution: {integrity: sha512-M6cB247uy32VzM/P4NpRSHNNTcPgTn+s31wBV7gD14hkA07jMGBYlEcAv1LOghLNGZ5AEvYxLxQCVSvkF7HNIw==}
 
   '@cspotcode/source-map-support@0.8.1':
     resolution: {integrity: sha512-IchNf6dN4tHoMFIn/7OE8LWZ19Y6q/67Bmf6vnGREv8RSbBVb9LPJxEcnwrcwX6ixSvaiGoomAUvu4YSxXrVgw==}
@@ -468,8 +468,8 @@ packages:
     resolution: {integrity: sha512-oGB+UxlgWcgQkgwo8GcEGwemoTFt3FIO9ababBmaGwXIoBKZ+GTy0pP185beGg7Llih/NSHSV2XAs1lnznocSg==}
     engines: {node: '>= 8'}
 
-  '@pkgr/core@0.2.0':
-    resolution: {integrity: sha512-vsJDAkYR6qCPu+ioGScGiMYR7LvZYIXh/dlQeviqoTWNCVfKTLYD/LkNWH4Mxsv2a5vpIRc77FN5DnmK1eBggQ==}
+  '@pkgr/core@0.2.1':
+    resolution: {integrity: sha512-VzgHzGblFmUeBmmrk55zPyrQIArQN4vujc9shWytaPdB3P7qhi0cpaiKIr7tlCmFv2lYUwnLospIqjL9ZSAhhg==}
     engines: {node: ^12.20.0 || ^14.18.0 || >=16.0.0}
 
   '@types/estree@1.0.7':
@@ -1400,7 +1400,7 @@ snapshots:
   '@cloudflare/workerd-windows-64@1.20250404.0':
     optional: true
 
-  '@cloudflare/workers-types@4.20250406.0': {}
+  '@cloudflare/workers-types@4.20250407.0': {}
 
   '@cspotcode/source-map-support@0.8.1':
     dependencies:
@@ -1685,7 +1685,7 @@ snapshots:
       '@nodelib/fs.scandir': 2.1.5
       fastq: 1.19.1
 
-  '@pkgr/core@0.2.0': {}
+  '@pkgr/core@0.2.1': {}
 
   '@types/estree@1.0.7': {}
 
@@ -2537,7 +2537,7 @@ snapshots:
 
   synckit@0.11.2:
     dependencies:
-      '@pkgr/core': 0.2.0
+      '@pkgr/core': 0.2.1
       tslib: 2.8.1
 
   table@6.9.0:
@@ -2612,7 +2612,7 @@ snapshots:
       '@cloudflare/workerd-linux-arm64': 1.20250404.0
       '@cloudflare/workerd-windows-64': 1.20250404.0
 
-  wrangler@4.7.2(@cloudflare/workers-types@4.20250406.0):
+  wrangler@4.7.2(@cloudflare/workers-types@4.20250407.0):
     dependencies:
       '@cloudflare/kv-asset-handler': 0.4.0
       '@cloudflare/unenv-preset': 2.3.1(unenv@2.0.0-rc.15)(workerd@1.20250404.0)
@@ -2623,7 +2623,7 @@ snapshots:
       unenv: 2.0.0-rc.15
       workerd: 1.20250404.0
     optionalDependencies:
-      '@cloudflare/workers-types': 4.20250406.0
+      '@cloudflare/workers-types': 4.20250407.0
       fsevents: 2.3.3
       sharp: 0.33.5
     transitivePeerDependencies:
