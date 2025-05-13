@@ -14,7 +14,7 @@
     "hono": "^4.7.9"
   },
   "devDependencies": {
-    "@cloudflare/workers-types": "^4.20250510.0",
+    "@cloudflare/workers-types": "^4.20250513.0",
     "@microsoft/eslint-formatter-sarif": "^3.1.0",
     "eslint": "^9.26.0",
     "eslint-config-prettier": "^10.1.5",
@@ -24,7 +24,7 @@
     "lint-staged": "^15.5.2",
     "prettier": "^3.5.3",
     "typescript": "^5.8.3",
-    "typescript-eslint": "^8.32.0",
+    "typescript-eslint": "^8.32.1",
     "wrangler": "^4.14.4"
   },
   "lint-staged": {
