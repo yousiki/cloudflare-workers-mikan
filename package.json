@@ -14,9 +14,9 @@
     "hono": "^4.7.9"
   },
   "devDependencies": {
-    "@cloudflare/workers-types": "^4.20250515.0",
+    "@cloudflare/workers-types": "^4.20250517.0",
     "@microsoft/eslint-formatter-sarif": "^3.1.0",
-    "eslint": "^9.26.0",
+    "eslint": "^9.27.0",
     "eslint-config-prettier": "^10.1.5",
     "eslint-formatter-table": "^7.32.1",
     "eslint-plugin-prettier": "^5.4.0",
