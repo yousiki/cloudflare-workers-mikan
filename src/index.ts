@@ -33,10 +33,8 @@ async function getUpstreamResponse(c: Context) {
 async function transformText(c: Context, response: Response) {
   const text = await response.text();
   const url = new URL(c.req.url);
-  return text.replace(
-    new RegExp(c.env.UPSTREAM, "g"),
-    url.hostname + ":" + url.port
-  );
+  const hostWithPort = url.port ? `${url.hostname}:${url.port}` : url.hostname;
+  return text.replace(new RegExp(c.env.UPSTREAM, "g"), hostWithPort);
 }
 
 app.get("/RSS/*", async (c: Context) => {
