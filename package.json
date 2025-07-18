@@ -14,7 +14,7 @@
     "hono": "^4.8.5"
   },
   "devDependencies": {
-    "@cloudflare/workers-types": "^4.20250715.0",
+    "@cloudflare/workers-types": "^4.20250718.0",
     "@microsoft/eslint-formatter-sarif": "^3.1.0",
     "@typescript-eslint/eslint-plugin": "^8.37.0",
     "@typescript-eslint/parser": "^8.37.0",
@@ -27,7 +27,7 @@
     "prettier": "^3.6.2",
     "typescript": "^5.8.3",
     "typescript-eslint": "^8.37.0",
-    "wrangler": "^4.24.4"
+    "wrangler": "^4.25.0"
   },
   "lint-staged": {
     "*": "prettier --write --ignore-unknown"
