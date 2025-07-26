@@ -11,14 +11,14 @@
     "prepare": "husky"
   },
   "dependencies": {
-    "hono": "^4.8.5"
+    "hono": "^4.8.9"
   },
   "devDependencies": {
-    "@cloudflare/workers-types": "^4.20250725.0",
+    "@cloudflare/workers-types": "^4.20250726.0",
     "@microsoft/eslint-formatter-sarif": "^3.1.0",
     "@typescript-eslint/eslint-plugin": "^8.38.0",
     "@typescript-eslint/parser": "^8.38.0",
-    "eslint": "^9.31.0",
+    "eslint": "^9.32.0",
     "eslint-config-prettier": "^10.1.8",
     "eslint-formatter-table": "^7.32.1",
     "eslint-plugin-prettier": "^5.5.3",
