@@ -11,10 +11,10 @@
     "prepare": "husky"
   },
   "dependencies": {
-    "hono": "^4.8.9"
+    "hono": "^4.8.10"
   },
   "devDependencies": {
-    "@cloudflare/workers-types": "^4.20250726.0",
+    "@cloudflare/workers-types": "^4.20250730.0",
     "@microsoft/eslint-formatter-sarif": "^3.1.0",
     "@typescript-eslint/eslint-plugin": "^8.38.0",
     "@typescript-eslint/parser": "^8.38.0",
@@ -27,7 +27,7 @@
     "prettier": "^3.6.2",
     "typescript": "^5.8.3",
     "typescript-eslint": "^8.38.0",
-    "wrangler": "^4.26.0"
+    "wrangler": "^4.26.1"
   },
   "lint-staged": {
     "*": "prettier --write --ignore-unknown"
