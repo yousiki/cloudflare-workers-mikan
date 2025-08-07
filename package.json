@@ -14,14 +14,14 @@
     "hono": "^4.8.12"
   },
   "devDependencies": {
-    "@cloudflare/workers-types": "^4.20250806.0",
+    "@cloudflare/workers-types": "^4.20250807.0",
     "@microsoft/eslint-formatter-sarif": "^3.1.0",
     "@typescript-eslint/eslint-plugin": "^8.39.0",
     "@typescript-eslint/parser": "^8.39.0",
     "eslint": "^9.32.0",
     "eslint-config-prettier": "^10.1.8",
     "eslint-formatter-table": "^7.32.1",
-    "eslint-plugin-prettier": "^5.5.3",
+    "eslint-plugin-prettier": "^5.5.4",
     "husky": "^9.1.7",
     "lint-staged": "^16.1.4",
     "prettier": "^3.6.2",
