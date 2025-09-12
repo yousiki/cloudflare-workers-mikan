@@ -11,7 +11,7 @@
     "prepare": "husky"
   },
   "dependencies": {
-    "hono": "^4.9.6"
+    "hono": "^4.9.7"
   },
   "devDependencies": {
     "@cloudflare/workers-types": "^4.20250912.0",
