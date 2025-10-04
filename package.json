@@ -14,11 +14,11 @@
     "hono": "^4.9.9"
   },
   "devDependencies": {
-    "@cloudflare/workers-types": "^4.20251003.0",
+    "@cloudflare/workers-types": "^4.20251004.0",
     "@microsoft/eslint-formatter-sarif": "^3.1.0",
     "@typescript-eslint/eslint-plugin": "^8.45.0",
     "@typescript-eslint/parser": "^8.45.0",
-    "eslint": "^9.36.0",
+    "eslint": "^9.37.0",
     "eslint-config-prettier": "^10.1.8",
     "eslint-formatter-table": "^7.32.1",
     "eslint-plugin-prettier": "^5.5.4",
@@ -27,7 +27,7 @@
     "prettier": "^3.6.2",
     "typescript": "^5.9.3",
     "typescript-eslint": "^8.45.0",
-    "wrangler": "^4.41.0"
+    "wrangler": "^4.42.0"
   },
   "lint-staged": {
     "*": "prettier --write --ignore-unknown"
