@@ -37,7 +37,7 @@ jobs:
       - name: Update dependencies
         run: pnpm update
       - name: Create Pull Request if there are changes
-        uses: peter-evans/create-pull-request@v7
+        uses: peter-evans/create-pull-request@v8
         id: update-packages
         with:
           token: ${{ secrets.ACTIONS_PR_TOKEN }}
